@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+                function showInput() {
+                document.getElementById("subtitle").innerHTML = document.getElementById("fname").value+" "+document.getElementById("lname").value;
+                return false;
+                };
+        </script>
         <title>
             DOMinant HTML
         </title>
     </head>
     <body>
-        <form action="/action_page.php" id="myForm">
+        <form id="myForm">
               First name:<br>
-              <input type="text" name="firstname"><br>
+              <input id="fname" type="text" name="firstname"><br>
               Last name:<br>
-              <input type="text" name="lastname"><br><br>
-              <input type="submit" value="Submit">
+              <input id="lname" type="text" name="lastname"><br><br>
+              <input type="button" onclick="showInput();" value="Submit">
         </form>
         <H1 id="maintitle">Learning DOMinant HTML</H1>
         <h4 id="subtitle">With yours truly, Arneezy the Geek!</h4>
@@ -50,9 +56,5 @@
             <li class="b2color">Selector a: getElementByld()</li>
             <li class="b2color">Selector b:getElementsByClassName()</li>
         </ul>
-        <script>
-            var x = document.getElementById("myForm").elements.namedItem("firstname").value + document.getElementById("myForm").elements.namedItem("lastname").value;
-            console.log(x);
-        </script>
     </body>
 </html>
