@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .hidden{
+            visibility:hidden;
+        }
+        .nothidden {
+            visibility:visible;
+        }
+        #form1{
+            font-family:Arial;
+        }
+    </style>
+    <head>
+        <title>
+            Mordor Inn and Suites
+        </title>
+        <h1>
+            Welcome to the Comfort Inn and Suites of Mordor
+        </h1>
+        <h2>
+            "One ring to rule them all, and a complimentary breakfast buffet for all guests"
+        </h2>
+    </head>
+    <body>
+        <div>
+            <img src="https://listverse.com/wp-content/uploads/2014/09/05.jpg">
+        </div>
+        <div>
+            <img src="https://images-cdn.9gag.com/photo/aYbOMLw_700b.jpg">
+        </div>
+        <div>
+            <p>
+                Are you thinking about purchasing a room?
+            </p>
+            <input type="button" onclick="showInput();" value="Yes">
+            <form class="hidden" id="form1">
+                aaaaaa
+            </form>
+            <script>
+                function showInput(){
+                    document.getElementById("form1").classList.remove("hidden")
+                };
+            </script>
+        </div>
+    </body>
+    <footer>
+        <h3>All Proceeds Go to the Mt. Doom Swimming Pool Burn Ward</h3>
+    </footer>
+</html>
