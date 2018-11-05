@@ -36,15 +36,35 @@
             <input type="button" onclick="showInput();" value="Yes">
             <form class="hidden" id="form1">
                 Please Select your Room:<br>
-                  <input type="radio" name="Room" value="Ent-Sized" checked> Ent-Sized<br>
-                  <input type="radio" name="Room" value="Orc-Sized"> Orc-Sized<br>
-                  <input type="radio" name="Room" value="Elf-Sized"> Elf-Sized<br>
-                  <input type="radio" name="Room" value="Man-Sized"> Man-Sized<br>
-                  <input type="radio" name="Room" value="Hobbit-Sized"> Hobbit-Sized<br>
-                  
+                  <input type="radio" name="Room" value="Ent-Sized" onclick="Ent();"> Ent-Sized<br>
+                      <ul class="hidden" id="Entlist">Amenities:<br>
+                          <li>Eye-View</li>
+                          <li>Turn-Down Service, or What</li>
+                          <li>Complimentary Warg Rides</li>
+                          <li>Plumming</li>
+                      </ul>
+                  <input type="radio" name="Room" value="Orc-Sized" onclick="Orc();"> Orc-Sized<br>
+                  <input type="radio" name="Room" value="Elf-Sized" onclick="Elf();"> Elf-Sized<br>
+                  <input type="radio" name="Room" value="Man-Sized" onclick="Man();"> Man-Sized<br>
+                  <input type="radio" name="Room" value="Hobbit-Sized" onclick="Hobbit();"> Hobbit-Sized<br>
             </form>
             <script>
                 function showInput(){
+                    document.getElementById("form1").classList.remove("hidden")
+                };
+                function Ent(){
+                    document.getElementById("Entlist").classList.remove("hidden")
+                };
+                function Orc(){
+                    document.getElementById("form1").classList.remove("hidden")
+                };
+                function Elf(){
+                    document.getElementById("form1").classList.remove("hidden")
+                };
+                function Man(){
+                    document.getElementById("form1").classList.remove("hidden")
+                };
+                function Hobbit(){
                     document.getElementById("form1").classList.remove("hidden")
                 };
             </script>
