@@ -10,6 +10,12 @@
         #form1{
             font-family:Arial;
         }
+        .visible1 {
+            visibility:visible;
+        }
+        .notvisible1 {
+            visibility: hidden;
+        }
     </style>
     <head>
         <title>
@@ -42,36 +48,82 @@
                           <li>Turn-Down Service, or What</li>
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
+                          <li class="cost">300</li>
                       </ul>
                   <input type="radio" name="Room" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
+                      <ul class="hidden" id="Orclist">Amenities:<br>
+                          <li>Mt.Doom View</li>
+                          <li>Turn-Down Service</li>
+                          <li>Complimentary Warg Rides</li>
+                          <li>No Plumming</li>
+                          <li class="cost">290</li>
+                      </ul>
                   <input type="radio" name="Room" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
+                      <ul class="hidden" id="Elflist">Amenities:<br>
+                          <li>Gate-View</li>
+                          <li>Turn-Down Service</li>
+                          <li>Complimentary Drake Rides</li>
+                          <li>Plumming</li>
+                          <li class="cost">220</li>
+                      </ul>
                   <input type="radio" name="Room" value="Man-Sized" onclick="Man()"> Man-Sized<br>
+                      <ul class="hidden" id="Manlist">Amenities:<br>
+                          <li>No-View</li>
+                          <li>Or What</li>
+                          <li>No Rides</li>
+                          <li>No Plumming</li>
+                          <li class="cost">120</li>
+                      </ul>
                   <input type="radio" name="Room" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
+                      <ul class="hidden" id="Hobbitlist">Amenities:<br>
+                          <li>Eye-View</li>
+                          <li>Turn-Down Service, or What</li>
+                          <li>Complimentary Warg Rides</li>
+                          <li>Plumming</li>
+                          <li class="cost">420</li>
+                      </ul>
+                 <input type="number" value="# of Selected Rooms" name="# of Selected Rooms"><font># of Selected Rooms</font>
             </form>
             <script>
                 function showInput(){
                     document.getElementById("form1").classList.remove("hidden")
                 }
                 function Ent(){
-                    if (document.getElementById("ENT").checked == true){
-                        document.getElementById("Entlist").classList.remove("hidden")
-                    }
-                    else if (document.getElementById("ENT").checked == true){
-                        document.getElementById("Entlist").classList
-                    }
+                    document.getElementById("Entlist").style.display ="block";
+                    document.getElementById("Orclist").style.display ="none";
+                    document.getElementById("Elflist").style.display ="none";
+                    document.getElementById("Manlist").style.display ="none";
+                    document.getElementById("Hobbitlist").style.display ="none";
                 }
                 function Orc(){
-                    document.getElementById("").classList.remove("hidden")
+                    document.getElementById("Orclist").style.display ="block"
+                    document.getElementById("Entlist").style.display ="none";
+                    document.getElementById("Elflist").style.display ="none";
+                    document.getElementById("Manlist").style.display ="none";
+                    document.getElementById("Hobbitlist").style.display ="none";
                 }
                 function Elf(){
-                    document.getElementById("").classList.remove("hidden")
+                    document.getElementById("Elflist").style.display ="block"
+                    document.getElementById("Entlist").style.display ="none";
+                    document.getElementById("Orclist").style.display ="none";
+                    document.getElementById("Manlist").style.display ="none";
+                    document.getElementById("Hobbitlist").style.display ="none";
                 }
                 function Man(){
-                    document.getElementById("").classList.remove("hidden")
+                    document.getElementById("Manlist").style.display ="block"
+                    document.getElementById("Entlist").style.display ="none";
+                    document.getElementById("Elflist").style.display ="none";
+                    document.getElementById("Orclist").style.display ="none";
+                    document.getElementById("Hobbitlist").style.display ="none";
                 }
                 function Hobbit(){
-                    document.getElementById("").classList.remove("hidden")
+                    document.getElementById("Hobbitlist").style.display ="block"
+                    document.getElementById("Entlist").style.display ="none";
+                    document.getElementById("Elflist").style.display ="none";
+                    document.getElementById("Manlist").style.display ="none";
+                    document.getElementById("Orclist").style.display ="none";
                 }
+                
             </script>
         </div>
     </body>
