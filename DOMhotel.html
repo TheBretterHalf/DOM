@@ -2,10 +2,10 @@
 <html>
     <style>
         .hidden{
-            visibility:hidden;
+            display:none;
         }
         .nothidden {
-            visibility:visible;
+            display:block;
         }
         #form1{
             font-family:Arial;
@@ -33,40 +33,45 @@
             <p>
                 Are you thinking about purchasing a room?
             </p>
-            <input type="button" onclick="showInput();" value="Yes">
+            <input type="button" onclick="showInput()" value="Yes">
             <form class="hidden" id="form1">
                 Please Select your Room:<br>
-                  <input type="radio" name="Room" value="Ent-Sized" onclick="Ent();"> Ent-Sized<br>
+                  <input type="radio" name="Room" value="Ent-Sized" onclick="Ent()" id="ENT"> Ent-Sized<br>
                       <ul class="hidden" id="Entlist">Amenities:<br>
                           <li>Eye-View</li>
                           <li>Turn-Down Service, or What</li>
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
                       </ul>
-                  <input type="radio" name="Room" value="Orc-Sized" onclick="Orc();"> Orc-Sized<br>
-                  <input type="radio" name="Room" value="Elf-Sized" onclick="Elf();"> Elf-Sized<br>
-                  <input type="radio" name="Room" value="Man-Sized" onclick="Man();"> Man-Sized<br>
-                  <input type="radio" name="Room" value="Hobbit-Sized" onclick="Hobbit();"> Hobbit-Sized<br>
+                  <input type="radio" name="Room" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
+                  <input type="radio" name="Room" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
+                  <input type="radio" name="Room" value="Man-Sized" onclick="Man()"> Man-Sized<br>
+                  <input type="radio" name="Room" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
             </form>
             <script>
                 function showInput(){
                     document.getElementById("form1").classList.remove("hidden")
-                };
+                }
                 function Ent(){
-                    document.getElementById("Entlist").classList.remove("hidden")
-                };
+                    if (document.getElementById("ENT").checked == true){
+                        document.getElementById("Entlist").classList.remove("hidden")
+                    }
+                    else if (document.getElementById("ENT").checked == true){
+                        document.getElementById("Entlist").classList
+                    }
+                }
                 function Orc(){
-                    document.getElementById("form1").classList.remove("hidden")
-                };
+                    document.getElementById("").classList.remove("hidden")
+                }
                 function Elf(){
-                    document.getElementById("form1").classList.remove("hidden")
-                };
+                    document.getElementById("").classList.remove("hidden")
+                }
                 function Man(){
-                    document.getElementById("form1").classList.remove("hidden")
-                };
+                    document.getElementById("").classList.remove("hidden")
+                }
                 function Hobbit(){
-                    document.getElementById("form1").classList.remove("hidden")
-                };
+                    document.getElementById("").classList.remove("hidden")
+                }
             </script>
         </div>
     </body>
