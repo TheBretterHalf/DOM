@@ -42,49 +42,54 @@
             <input type="button" onclick="showInput()" value="Yes">
             <form class="hidden" id="form1">
                 Please Select your Room:<br>
-                  <input type="radio" name="Room" value="Ent-Sized" onclick="Ent()" id="ENT"> Ent-Sized<br>
+                  <input type="radio" name="Room" value="Ent-Sized" class="radiocall" onclick="Ent()" id="ENT"> Ent-Sized<br>
                       <ul class="hidden" id="Entlist">Amenities:<br>
                           <li>Eye-View</li>
                           <li>Turn-Down Service, or What</li>
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
-                          <li class="cost">300</li>
+                          <li class="cost" value=300>300 Gold</li>
                       </ul>
-                  <input type="radio" name="Room" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
+                  <input type="radio" name="Room" class="radiocall" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
                       <ul class="hidden" id="Orclist">Amenities:<br>
                           <li>Mt.Doom View</li>
                           <li>Turn-Down Service</li>
                           <li>Complimentary Warg Rides</li>
                           <li>No Plumming</li>
-                          <li class="cost">290</li>
+                          <li class="cost" value=290>290 Gold</li>
                       </ul>
-                  <input type="radio" name="Room" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
+                  <input type="radio" name="Room" class="radiocall" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
                       <ul class="hidden" id="Elflist">Amenities:<br>
                           <li>Gate-View</li>
                           <li>Turn-Down Service</li>
                           <li>Complimentary Drake Rides</li>
                           <li>Plumming</li>
-                          <li class="cost">220</li>
+                          <li class="cost" value=220>220 Gold</li>
                       </ul>
-                  <input type="radio" name="Room" value="Man-Sized" onclick="Man()"> Man-Sized<br>
+                  <input type="radio" name="Room" class="radiocall" value="Man-Sized" onclick="Man()"> Man-Sized<br>
                       <ul class="hidden" id="Manlist">Amenities:<br>
                           <li>No-View</li>
                           <li>Or What</li>
                           <li>No Rides</li>
                           <li>No Plumming</li>
-                          <li class="cost">120</li>
+                          <li class="cost" value=120>120 Gold</li>
                       </ul>
-                  <input type="radio" name="Room" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
+                  <input type="radio" name="Room" class="radiocall" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
                       <ul class="hidden" id="Hobbitlist">Amenities:<br>
                           <li>Eye-View</li>
                           <li>Turn-Down Service, or What</li>
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
-                          <li class="cost">420</li>
+                          <li class="cost" value=420>420 Gold</li>
                       </ul>
-                 <input type="number" value="# of Selected Rooms" name="# of Selected Rooms"><font># of Selected Rooms</font>
+                 <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms"><font># of Selected Rooms</font>
+                 <br>
+                 <input type="button" value="Reset">
+                 <input type="button" value="Add Room" onclick="checkedcost()">
             </form>
+            
             <script>
+                var totalcost=0;
                 function showInput(){
                     document.getElementById("form1").classList.remove("hidden")
                 }
@@ -122,6 +127,14 @@
                     document.getElementById("Elflist").style.display ="none";
                     document.getElementById("Manlist").style.display ="none";
                     document.getElementById("Orclist").style.display ="none";
+                }
+                function checkedcost(){
+                    for (let i=0; i<6; i++){
+                        if (document.getElementsByClassName("radiocall")[i].checked == true){
+                            totalcost = totalcost+ (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
+                            
+                        }
+                    }
                 }
                 //get element === checked true, take cost out of that, and add that to an array with the number of rooms
                 //than use that array to compute total cost.
