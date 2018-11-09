@@ -25,8 +25,11 @@
             Welcome to the Comfort Inn and Suites of Mordor
         </h1>
         <h2>
-            "One ring to rule them all, and a complimentary breakfast buffet for all guests"
+            "One room to rule them all, and a complimentary breakfast buffet for all guests"
         </h2>
+        <h3>
+            due to high demand, we are currently out of precious
+        </h3>
     </head>
     <body>
         <div>
@@ -84,12 +87,15 @@
                       </ul>
                  <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms"><font># of Selected Rooms</font>
                  <br>
-                 <input type="button" value="Reset">
+                 <input type="button" value="Reset" onclick="resetobj()">
                  <input type="button" value="Add Room" onclick="checkedcost()">
             </form>
-            
+            <p id="roomObj"></p>
             <script>
                 var totalcost=0;
+                var purchaseroom=[];
+                var numberofroom=[];
+                var roomobj={purchaseroom:numberofroom};
                 function showInput(){
                     document.getElementById("form1").classList.remove("hidden")
                 }
@@ -132,9 +138,18 @@
                     for (let i=0; i<6; i++){
                         if (document.getElementsByClassName("radiocall")[i].checked == true){
                             totalcost = totalcost+ (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
-                            
+                            numberofroom.push(document.getElementById("SelectedRooms").value);
+                            purchaseroom.push(document.getElementsByClassName("radiocall")[i].value);
+                            roomobj = Object.assign.apply({}, purchaseroom.map( (v, i) => ( {[v]: numberofroom[i]} ) ) );
+                            // alert(purchaseroom);
+                            document.getElementById("roomObj").innerText=JSON.stringify(roomobj);
                         }
                     }
+                }
+                function resetobj(){
+                    document.getElementById("roomObj").innerText=JSON.stringify();
+                    numberofroom.splice(0,numberofroom.length);
+                    purchaseroom.splice(0,purchaseroom.length);
                 }
                 //get element === checked true, take cost out of that, and add that to an array with the number of rooms
                 //than use that array to compute total cost.
