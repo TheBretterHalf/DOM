@@ -16,6 +16,9 @@
         .notvisible1 {
             visibility: hidden;
         }
+        .hiddenroomsavail{
+            display:none;
+        }
     </style>
     <head>
         <title>
@@ -52,6 +55,7 @@
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
                           <li class="cost" value=300>300 Gold</li>
+                          <li class="roomsavail hiddenroomsavail">10</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
                       <ul class="hidden" id="Orclist">Amenities:<br>
@@ -60,6 +64,7 @@
                           <li>Complimentary Warg Rides</li>
                           <li>No Plumming</li>
                           <li class="cost" value=290>290 Gold</li>
+                          <li class="roomsavail hiddenroomsavail">10</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
                       <ul class="hidden" id="Elflist">Amenities:<br>
@@ -68,6 +73,7 @@
                           <li>Complimentary Drake Rides</li>
                           <li>Plumming</li>
                           <li class="cost" value=220>220 Gold</li>
+                          <li class="roomsavail hiddenroomsavail">10</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Man-Sized" onclick="Man()"> Man-Sized<br>
                       <ul class="hidden" id="Manlist">Amenities:<br>
@@ -76,6 +82,7 @@
                           <li>No Rides</li>
                           <li>No Plumming</li>
                           <li class="cost" value=120>120 Gold</li>
+                          <li class="roomsavail hiddenroomsavail">10</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
                       <ul class="hidden" id="Hobbitlist">Amenities:<br>
@@ -84,8 +91,9 @@
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
                           <li class="cost" value=420>420 Gold</li>
+                          <li class="roomsavail hiddenroomsavail">10</li>
                       </ul>
-                 <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms"><font># of Selected Rooms</font>
+                 <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms" min="1"><font># of Selected Rooms</font>
                  <br>
                  <input type="button" value="Reset" onclick="resetobj()">
                  <input type="button" value="Add Room" onclick="checkedcost()">
@@ -137,12 +145,16 @@
                 function checkedcost(){
                     for (let i=0; i<6; i++){
                         if (document.getElementsByClassName("radiocall")[i].checked == true){
-                            totalcost = totalcost+ (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
-                            numberofroom.push(document.getElementById("SelectedRooms").value);
-                            purchaseroom.push(document.getElementsByClassName("radiocall")[i].value);
-                            roomobj = Object.assign.apply({}, purchaseroom.map( (v, i) => ( {[v]: numberofroom[i]} ) ) );
-                            // alert(purchaseroom);
-                            document.getElementById("roomObj").innerText=JSON.stringify(roomobj);
+                            if (document.getElementById("SelectedRooms").value>document.getElementsByClassName("roomsavail")[i].innerText){
+                            alert("Gondor Calls for Aid, and You Have Requested Too Many Rooms");
+                            }
+                            else if (document.getElementById("SelectedRooms").value<=document.getElementsByClassName("roomsavail")[i].innerText){
+                                totalcost = totalcost+ (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
+                                numberofroom.push(document.getElementById("SelectedRooms").value);
+                                purchaseroom.push(document.getElementsByClassName("radiocall")[i].value);
+                                roomobj = Object.assign.apply({}, purchaseroom.map( (v, i) => ( {[v]: numberofroom[i]} ) ) );
+                                document.getElementById("roomObj").innerText=JSON.stringify(roomobj);
+                            }
                         }
                     }
                 }
@@ -151,8 +163,6 @@
                     numberofroom.splice(0,numberofroom.length);
                     purchaseroom.splice(0,purchaseroom.length);
                 }
-                //get element === checked true, take cost out of that, and add that to an array with the number of rooms
-                //than use that array to compute total cost.
                 
                 //implement a total # of rooms as well somewehre.
             </script>
