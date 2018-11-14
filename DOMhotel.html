@@ -3,49 +3,92 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <style>
-        .hidden{
-            display:none;
-        }
-        .nothidden {
-            display:block;
-        }
-        #form1{
-            font-family:Arial;
-        }
-        .visible1 {
-            visibility:visible;
-        }
-        .notvisible1 {
-            visibility: hidden;
-        }
-        .hiddenroomsavail{
-            display:none;
-        }
-        .imgbanner{
-              width: 100%;
-              height: 200px;
-              background-color: purple;
-              background-position: center;
-        }
-        .centered {
-            position: absolute;
-            top: 37%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color:white;
-        }
-    </style>
-    <head>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .nothidden {
+        display: block;
+    }
+
+    #form1 {
+        font-family: Arial;
+    }
+
+    .visible1 {
+        visibility: visible;
+    }
+
+    .notvisible1 {
+        visibility: hidden;
+    }
+
+    .hiddenroomsavail {
+        display: none;
+    }
+
+    .imgbanner {
+        width: 100%;
+        height: 300px;
+        background-color: purple;
+        background-position: center;
+    }
+
+    .centered {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: 'Lobster', cursive;
+        font-size: 50px;
+    }
+
+    .textcenter {
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size:50px;
+        color:#d2dae2;
+    }
+    .backgroundcolorgrey{
+        background-color:#4b4b4b;
+    }
+    .elegantshadow {
+        color: #4b4b4b;
+        background-color: none;
+        letter-spacing: .15em;
+        text-shadow: 
+          1px -1px 0 #767676, 
+          -1px 2px 1px #737272, 
+          -2px 4px 1px #767474, 
+          -3px 6px 1px #787777, 
+          -4px 8px 1px #7b7a7a, 
+          -5px 10px 1px #7f7d7d, 
+          -6px 12px 1px #828181, 
+          -7px 14px 1px #868585, 
+          -8px 16px 1px #8b8a89, 
+          -9px 18px 1px #8f8e8d, 
+          -10px 20px 1px #949392, 
+          -11px 22px 1px #999897, 
+          -12px 24px 1px #9e9c9c;
+      }
+</style>
+
+<head>
+    <div class="backgroundcolorgrey">
         <div class="container">
-            <img class="imgbanner" src="https://i.pinimg.com/originals/ec/68/76/ec687660b7cb4acf3ebfe49d32fe76cf.jpg" alt="mordor-skyline">
-            <div class="centered">Sauron Welcomes You To</div>
-        </div>    
+            <img class="imgbanner" src="https://preview.redd.it/2zq7f97zrdh11.png?width=1024&auto=webp&s=fc2cb4a60b7a47346440c869a9ad2ca3d5541a6d" alt="mordor-skyline">
+            <p class="centered elegantshadow">Sauron Welcomes You To</p>
+        </div>
         <title>
             Mordor Inn and Suites
         </title>
-        <h1>
-            Welcome to the Comfort Inn and Suites of Mordor
+        <h1 class="textcenter">
+            The Comfort Inn and Suites of Mordor
         </h1>
         <h2>
             "One room to rule them all, and a complimentary breakfast buffet for all guests"
@@ -53,142 +96,155 @@
         <h3>
             due to high demand, we are currently out of precious
         </h3>
-    </head>
-    <body>
-        <div>
-            <img src="https://listverse.com/wp-content/uploads/2014/09/05.jpg">
-        </div>
-        <div>
-            <img src="https://images-cdn.9gag.com/photo/aYbOMLw_700b.jpg">
-        </div>
-        <div>
-            <p>
-                Are you thinking about purchasing a room?
-            </p>
-            <input type="button" onclick="showInput()" value="Yes">
-            <form class="hidden" id="form1">
-                Please Select your Room:<br>
-                  <input type="radio" name="Room" value="Ent-Sized" class="radiocall" onclick="Ent()" id="ENT"> Ent-Sized<br>
-                      <ul class="hidden" id="Entlist">Amenities:<br>
-                          <li>Eye-View</li>
-                          <li>Turn-Down Service, or What</li>
-                          <li>Complimentary Warg Rides</li>
-                          <li>Plumming</li>
-                          <li class="cost" value=300>300 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
-                      </ul>
-                  <input type="radio" name="Room" class="radiocall" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
-                      <ul class="hidden" id="Orclist">Amenities:<br>
-                          <li>Mt.Doom View</li>
-                          <li>Turn-Down Service</li>
-                          <li>Complimentary Warg Rides</li>
-                          <li>No Plumming</li>
-                          <li class="cost" value=290>290 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
-                      </ul>
-                  <input type="radio" name="Room" class="radiocall" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
-                      <ul class="hidden" id="Elflist">Amenities:<br>
-                          <li>Gate-View</li>
-                          <li>Turn-Down Service</li>
-                          <li>Complimentary Drake Rides</li>
-                          <li>Plumming</li>
-                          <li class="cost" value=220>220 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
-                      </ul>
-                  <input type="radio" name="Room" class="radiocall" value="Man-Sized" onclick="Man()"> Man-Sized<br>
-                      <ul class="hidden" id="Manlist">Amenities:<br>
-                          <li>No-View</li>
-                          <li>Or What</li>
-                          <li>No Rides</li>
-                          <li>No Plumming</li>
-                          <li class="cost" value=120>120 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
-                      </ul>
-                  <input type="radio" name="Room" class="radiocall" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
-                      <ul class="hidden" id="Hobbitlist">Amenities:<br>
-                          <li>Eye-View</li>
-                          <li>Turn-Down Service, or What</li>
-                          <li>Complimentary Warg Rides</li>
-                          <li>Plumming</li>
-                          <li class="cost" value=420>420 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
-                      </ul>
-                 <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms" min="1"><font># of Selected Rooms</font>
-                 <br>
-                 <input type="button" value="Reset" onclick="resetobj()">
-                 <input type="button" value="Add Room" onclick="checkedcost()">
-            </form>
-            <p id="roomObj"></p>
-            <script>
-                var totalcost=0;
-                var purchaseroom=[];
-                var numberofroom=[];
-                var roomobj={purchaseroom:numberofroom};
-                function showInput(){
-                    document.getElementById("form1").classList.remove("hidden")
-                }
-                function Ent(){
-                    document.getElementById("Entlist").style.display ="block";
-                    document.getElementById("Orclist").style.display ="none";
-                    document.getElementById("Elflist").style.display ="none";
-                    document.getElementById("Manlist").style.display ="none";
-                    document.getElementById("Hobbitlist").style.display ="none";
-                }
-                function Orc(){
-                    document.getElementById("Orclist").style.display ="block"
-                    document.getElementById("Entlist").style.display ="none";
-                    document.getElementById("Elflist").style.display ="none";
-                    document.getElementById("Manlist").style.display ="none";
-                    document.getElementById("Hobbitlist").style.display ="none";
-                }
-                function Elf(){
-                    document.getElementById("Elflist").style.display ="block"
-                    document.getElementById("Entlist").style.display ="none";
-                    document.getElementById("Orclist").style.display ="none";
-                    document.getElementById("Manlist").style.display ="none";
-                    document.getElementById("Hobbitlist").style.display ="none";
-                }
-                function Man(){
-                    document.getElementById("Manlist").style.display ="block"
-                    document.getElementById("Entlist").style.display ="none";
-                    document.getElementById("Elflist").style.display ="none";
-                    document.getElementById("Orclist").style.display ="none";
-                    document.getElementById("Hobbitlist").style.display ="none";
-                }
-                function Hobbit(){
-                    document.getElementById("Hobbitlist").style.display ="block"
-                    document.getElementById("Entlist").style.display ="none";
-                    document.getElementById("Elflist").style.display ="none";
-                    document.getElementById("Manlist").style.display ="none";
-                    document.getElementById("Orclist").style.display ="none";
-                }
-                function checkedcost(){
-                    for (let i=0; i<6; i++){
-                        if (document.getElementsByClassName("radiocall")[i].checked == true){
-                            if (document.getElementById("SelectedRooms").value>document.getElementsByClassName("roomsavail")[i].innerText){
-                            alert("Gondor Calls for Aid, and You Have Requested Too Many Rooms");
-                            }
-                            else if (document.getElementById("SelectedRooms").value<=document.getElementsByClassName("roomsavail")[i].innerText){
-                                totalcost = totalcost+ (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
-                                numberofroom.push(document.getElementById("SelectedRooms").value);
-                                purchaseroom.push(document.getElementsByClassName("radiocall")[i].value);
-                                roomobj = Object.assign.apply({}, purchaseroom.map( (v, i) => ( {[v]: numberofroom[i]} ) ) );
-                                document.getElementById("roomObj").innerText=JSON.stringify(roomobj);
-                            }
+    </div>
+</head>
+
+<body>
+    <div>
+        <img src="https://listverse.com/wp-content/uploads/2014/09/05.jpg">
+    </div>
+    <div>
+        <img src="https://i.pinimg.com/236x/e1/44/3b/e1443b46cb2e7028853a20061b458ccf--mordor-game-shadow-of-mordor.jpg">
+    </div>
+    <div>
+        <img src="https://images-cdn.9gag.com/photo/aYbOMLw_700b.jpg">
+    </div>
+    <div>
+        <p>
+            Are you thinking about purchasing a room?
+        </p>
+        <input type="button" onclick="showInput()" value="Yes">
+        <form class="hidden" id="form1">
+            Please Select your Room:<br>
+            <input type="radio" name="Room" value="Ent-Sized" class="radiocall" onclick="Ent()" id="ENT"> Ent-Sized<br>
+            <ul class="hidden" id="Entlist">Amenities:<br>
+                <li>Eye-View</li>
+                <li>Turn-Down Service, or What</li>
+                <li>Complimentary Warg Rides</li>
+                <li>Plumming</li>
+                <li class="cost" value=300>300 Gold</li>
+                <li class="roomsavail hiddenroomsavail">10</li>
+            </ul>
+            <input type="radio" name="Room" class="radiocall" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
+            <ul class="hidden" id="Orclist">Amenities:<br>
+                <li>Mt.Doom View</li>
+                <li>Turn-Down Service</li>
+                <li>Complimentary Warg Rides</li>
+                <li>No Plumming</li>
+                <li class="cost" value=290>290 Gold</li>
+                <li class="roomsavail hiddenroomsavail">10</li>
+            </ul>
+            <input type="radio" name="Room" class="radiocall" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
+            <ul class="hidden" id="Elflist">Amenities:<br>
+                <li>Gate-View</li>
+                <li>Turn-Down Service</li>
+                <li>Complimentary Drake Rides</li>
+                <li>Plumming</li>
+                <li class="cost" value=220>220 Gold</li>
+                <li class="roomsavail hiddenroomsavail">10</li>
+            </ul>
+            <input type="radio" name="Room" class="radiocall" value="Man-Sized" onclick="Man()"> Man-Sized<br>
+            <ul class="hidden" id="Manlist">Amenities:<br>
+                <li>No-View</li>
+                <li>Or What</li>
+                <li>No Rides</li>
+                <li>No Plumming</li>
+                <li class="cost" value=120>120 Gold</li>
+                <li class="roomsavail hiddenroomsavail">10</li>
+            </ul>
+            <input type="radio" name="Room" class="radiocall" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
+            <ul class="hidden" id="Hobbitlist">Amenities:<br>
+                <li>Eye-View</li>
+                <li>Turn-Down Service, or What</li>
+                <li>Complimentary Warg Rides</li>
+                <li>Plumming</li>
+                <li class="cost" value=420>420 Gold</li>
+                <li class="roomsavail hiddenroomsavail">10</li>
+            </ul>
+            <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms" min="1">
+            <font># of Selected Rooms</font>
+            <br>
+            <input type="button" value="Reset" onclick="resetobj()">
+            <input type="button" value="Add Room" onclick="checkedcost()">
+        </form>
+        <script>
+            var totalcost = 0;
+            var purchaseroom = [];
+            var numberofroom = [];
+            var roomobj = { purchaseroom: numberofroom };
+
+            function showInput() {
+                document.getElementById("form1").classList.remove("hidden")
+            }
+
+            function Ent() {
+                document.getElementById("Entlist").style.display = "block";
+                document.getElementById("Orclist").style.display = "none";
+                document.getElementById("Elflist").style.display = "none";
+                document.getElementById("Manlist").style.display = "none";
+                document.getElementById("Hobbitlist").style.display = "none";
+            }
+
+            function Orc() {
+                document.getElementById("Orclist").style.display = "block"
+                document.getElementById("Entlist").style.display = "none";
+                document.getElementById("Elflist").style.display = "none";
+                document.getElementById("Manlist").style.display = "none";
+                document.getElementById("Hobbitlist").style.display = "none";
+            }
+
+            function Elf() {
+                document.getElementById("Elflist").style.display = "block"
+                document.getElementById("Entlist").style.display = "none";
+                document.getElementById("Orclist").style.display = "none";
+                document.getElementById("Manlist").style.display = "none";
+                document.getElementById("Hobbitlist").style.display = "none";
+            }
+
+            function Man() {
+                document.getElementById("Manlist").style.display = "block"
+                document.getElementById("Entlist").style.display = "none";
+                document.getElementById("Elflist").style.display = "none";
+                document.getElementById("Orclist").style.display = "none";
+                document.getElementById("Hobbitlist").style.display = "none";
+            }
+
+            function Hobbit() {
+                document.getElementById("Hobbitlist").style.display = "block"
+                document.getElementById("Entlist").style.display = "none";
+                document.getElementById("Elflist").style.display = "none";
+                document.getElementById("Manlist").style.display = "none";
+                document.getElementById("Orclist").style.display = "none";
+            }
+
+            function checkedcost() {
+                for (let i = 0; i < 6; i++) {
+                    if (document.getElementsByClassName("radiocall")[i].checked == true) {
+                        if (document.getElementById("SelectedRooms").value <= document.getElementsByClassName("roomsavail")[i].innerText) {
+                            totalcost = totalcost + (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
+                            numberofroom.push(document.getElementById("SelectedRooms").value);
+                            purchaseroom.push(document.getElementsByClassName("radiocall")[i].value);
+                            roomobj = Object.assign.apply({}, purchaseroom.map((v, i) => ({
+                                [v]: numberofroom[i]
+                            })));
+                            document.getElementById("roomObj").innerText = JSON.stringify(roomobj);
                         }
                     }
                 }
-                function resetobj(){
-                    document.getElementById("roomObj").innerText=JSON.stringify();
-                    numberofroom.splice(0,numberofroom.length);
-                    purchaseroom.splice(0,purchaseroom.length);
-                }
-                
-                //implement a total # of rooms as well somewehre.
-            </script>
-        </div>
-    </body>
-    <footer>
-        <h3>All Proceeds Go to the Mt. Doom Swimming Pool Burn Ward</h3>
-    </footer>
+            }
+
+            function resetobj() {
+                document.getElementById("roomObj").innerText = JSON.stringify();
+                numberofroom.splice(0, numberofroom.length);
+                purchaseroom.splice(0, purchaseroom.length);
+            }
+
+            //implement a total # of rooms as well somewehre.
+        </script>
+    </div>
+</body>
+<footer>
+    <h3>All Proceeds Go to the Mt. Doom Swimming Pool Burn Ward</h3>
+</footer>
+
 </html>
