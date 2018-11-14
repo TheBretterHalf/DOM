@@ -30,7 +30,7 @@
         }
         .centered {
             position: absolute;
-            top: 37%;
+            top: 15%;
             left: 50%;
             transform: translate(-50%, -50%);
             color:white;
@@ -75,7 +75,7 @@
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
                           <li class="cost" value=300>300 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
+                          <li class="roomsavail hiddenroomsavail">15</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Orc-Sized" onclick="Orc()" id="ORC"> Orc-Sized<br>
                       <ul class="hidden" id="Orclist">Amenities:<br>
@@ -84,7 +84,7 @@
                           <li>Complimentary Warg Rides</li>
                           <li>No Plumming</li>
                           <li class="cost" value=290>290 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
+                          <li class="roomsavail hiddenroomsavail">0</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Elf-Sized" onclick="Elf()"> Elf-Sized<br>
                       <ul class="hidden" id="Elflist">Amenities:<br>
@@ -102,7 +102,7 @@
                           <li>No Rides</li>
                           <li>No Plumming</li>
                           <li class="cost" value=120>120 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
+                          <li class="roomsavail hiddenroomsavail">8</li>
                       </ul>
                   <input type="radio" name="Room" class="radiocall" value="Hobbit-Sized" onclick="Hobbit()"> Hobbit-Sized<br>
                       <ul class="hidden" id="Hobbitlist">Amenities:<br>
@@ -111,9 +111,9 @@
                           <li>Complimentary Warg Rides</li>
                           <li>Plumming</li>
                           <li class="cost" value=420>420 Gold</li>
-                          <li class="roomsavail hiddenroomsavail">10</li>
+                          <li class="roomsavail hiddenroomsavail">4</li>
                       </ul>
-                 <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms" min="1"><font># of Selected Rooms</font>
+                 <input type="number" value=1 id="SelectedRooms" name="# of Selected Rooms" min="1" max="20"><font># of Selected Rooms</font>
                  <br>
                  <input type="button" value="Reset" onclick="resetobj()">
                  <input type="button" value="Add Room" onclick="checkedcost()">
@@ -166,7 +166,7 @@
                     for (let i=0; i<6; i++){
                         if (document.getElementsByClassName("radiocall")[i].checked == true){
                             if (document.getElementById("SelectedRooms").value>document.getElementsByClassName("roomsavail")[i].innerText){
-                            alert("Gondor Calls for Aid, and You Have Requested Too Many Rooms");
+                            alert("Gondor Calls for Aid, and You Have Requested Too Many Rooms.  We only have " + document.getElementsByClassName("roomsavail")[i].innerText + " " + document.getElementsByClassName("radiocall")[i].value +" rooms available with those amenities");
                             }
                             else if (document.getElementById("SelectedRooms").value<=document.getElementsByClassName("roomsavail")[i].innerText){
                                 totalcost = totalcost+ (document.getElementsByClassName("cost")[i].value * document.getElementById("SelectedRooms").value);
