@@ -10,7 +10,8 @@
     </head>
     <body>
         <div>
-            <script language="javascript">
+            <script>
+                var totrooms=0;
                 var hotel = {
                     EntRoom:{
                         cost:350,
@@ -66,6 +67,11 @@
                             windows:"Front Door",
                             pool:"Hobbittown",
                             beds:"1/2 Twin Beds"
+                        }
+                    },
+                    availablerooms: function(){
+                        for (var availability in hotel){
+                            
                         }
                     }
                 };
